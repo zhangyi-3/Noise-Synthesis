@@ -24,6 +24,43 @@ generalization on different sensors and lighting conditions. (2) Recent conclusi
 DNN-based noise modeling methods are actually based on inaccurate noise parameters. 
 The DNN-based methods still cannot outperform physics-based statistical methods.
 
-### Code & calibrated parameters
+### Testing
+The code has been tested with the following environment:
+```
+pytorch == 1.5.0
+scikit-image == 0.16.2
+scipy == 1.3.1
+h5py 2.10.0 
+```
+    
+- Prepare the [SIDD-Medium Dataset](https://www.eecs.yorku.ca/~kamel/sidd/dataset.php) dataset. 
+- Download the [pretrained models](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155135732_link_cuhk_edu_hk/Egb3x2YO-qBBgQ41N8WiCIUBRQuxb4gWsV_Ml1yLfDti9w?e=wRwC7e) and put them into the checkpoints folder.
+- Modify the default root of the SIDD dataset and run the command with the specific camera name (s6 | ip | gp) 
+```
+python -u test.py --root SIDD_Medium/Data --camera s6
+```
 
-coming soon ！
+
+### Noise parameters
+The calibrated noise parameters for the SIDD dataset and the ELD dataset can be found in ``synthesize.py``.
+
+
+### Citation
+``` bibtex
+ @InProceedings{zhang2021rethinking,
+        author    = {Zhang, Yi and Qin, Hongwei and Wang, Xiaogang and Li, Hongsheng},
+        title     = {Rethinking Noise Synthesis and Modeling in Raw Denoising},
+        booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+        month     = {October},
+        year      = {2021},
+        pages     = {4593-4601}
+    }
+```
+
+### Contact
+Feel free to contact zhangyi@link.cuhk.edu.hk if you have any questions.
+
+### Acknowledgments
+* [ELD](https://github.com/Vandermode/ELD)
+* [CA-NoiseGAN](https://github.com/arcchang1236/CA-NoiseGAN)
+* [simple-camera-pipeline](https://github.com/AbdoKamel/simple-camera-pipeline)
